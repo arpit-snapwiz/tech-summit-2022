@@ -20,21 +20,21 @@ const Todos = (props) => {
   const [todo, setTodo] = useState('')
 
   const handleChange = (e) => {
-    setTodo(e.target.value)
-  }
+    setTodo(e.target.value);
+  };
 
-  const add = () => {
-    if (todo === '') {
-      alert('Input is Empty')
+  const add = (todo) => {
+    if (todo === "") {
+      alert("Input is Empty");
     } else {
       props.addTodo({
         id: Math.floor(Math.random() * 1000),
         item: `todo: ${todo}`,
         completed: false,
-      })
-      setTodo('')
+      });
+      setTodo("");
     }
-  }
+  };
   //console.log("props from store", props);
   return (
     <div className="addTodos">
@@ -49,13 +49,13 @@ const Todos = (props) => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         className="add-btn"
-        onClick={() => add()}
+        onClick={() => add(todo)}
       >
         <GoPlus />
       </motion.button>
       <br />
     </div>
-  )
+  );
 }
 //we can use connect method to connect this component with redux store
 export default connect(mapStateToProps, mapDispatchToProps)(Todos)
