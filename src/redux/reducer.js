@@ -19,7 +19,7 @@ const addTodoReducer = createSlice({
     //update todos
     updateTodos: (state, action) => {
       return state.map((todo) => {
-        if (todo.id !== action.payload.id) {
+        if (todo.id == action.payload.id) {
           return {
             ...todo,
             item: action.payload.item,
